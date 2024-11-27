@@ -92,16 +92,13 @@ def testaComentarPostagemInexistente():
 
 def testaExcluirContaValido():
     resetar()
-    criar_usuario('Lucas')
-    criar_usuario('Jose')
-    criar_postagem(1, 'Postagem de Lucas')
+    criar_usuario('Rafael')
+    criar_usuario('Miguel')
+    criar_postagem(1, 'Olá Mundo')
     
-    # Excluir a conta do usuário Lucas
     excluir_conta(1)
 
-    # Validar que o usuário Lucas foi removido
     with pytest.raises(IndexError):
         encontrar_usuario_por_id(1)
     
-    # Validar que a postagem de Lucas foi removida
     assert len(postagens) == 0
