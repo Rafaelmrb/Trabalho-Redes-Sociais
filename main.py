@@ -97,7 +97,6 @@ def encontrar_postagem_por_id(post_id):
 def excluir_conta(usuario_id):
     try:
         usuario = encontrar_usuario_por_id(usuario_id)
-        # Remover todas as postagens do usuário
         for postagem in postagens:
             if postagem['usuario'] == usuario_id:
                 postagens.remove(postagem)
@@ -108,7 +107,6 @@ def excluir_conta(usuario_id):
             if usuario_id in outro_usuario['seguidores']:
                 outro_usuario['seguidores'].remove(usuario_id)
         
-        # Remover o usuário da lista de usuários
         usuarios.remove(usuario)
     except IndexError:
         raise IndexError("Usuário não encontrado.")
